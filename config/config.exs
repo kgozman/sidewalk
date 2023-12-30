@@ -31,10 +31,13 @@ config :sidewalk, SidewalkWeb.Endpoint,
     layout: false
   ],
   pubsub_server: Sidewalk.PubSub,
-  live_view: [signing_salt: "5lTnP2rl"],
-  pow: [session_store: Pow.Store.Backend.EtsCache]
-
-
+  # live_view: [signing_salt: "sR51TAX7"],
+  live_view: [signing_salt: "*S2e68g!Zg2I$RRYto7f1U5UY#BUNWF263vUdHfiju4zJ@6cZoort^eZIzQhK@e3"],
+  session_options: [
+      store: :cookie,
+      key: "u7kR^AQ&Y6#o2!yLhUrLmcdFZNGEX9$NjfKQpLnFPxi@AitHXao@uFVx5C#ktUbu",
+      signing_salt: "sR51TAX7"
+    ]
 # Configures the mailer
 #
 # By default it uses the "Local" adapter which stores the emails
@@ -73,6 +76,12 @@ config :logger, :console,
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
+
+config :sidewalk, :pow,
+  user: Sidewalk.Users.User,
+  repo: Sidewalk.Repo,
+  web_module: SidewalkWeb
+
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

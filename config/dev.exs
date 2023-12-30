@@ -23,7 +23,7 @@ config :sidewalk, SidewalkWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "SbGnyp/Z4YEcT/Q9cka6+mlabgqaC3LXYTB+M+x7N5e6TxDVYwRRrKJt5HbAiFp+",
+  secret_key_base: "nsgrI68mMPeoIuoQSRrjcuK3KbNtPIRkRxKmjWm4xynjQMhH/jlr+AlnNGCeQBXc",
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
     tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}

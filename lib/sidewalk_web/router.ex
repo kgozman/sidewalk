@@ -1,4 +1,5 @@
 defmodule SidewalkWeb.Router do
+  use Pow.Phoenix.Router
   use SidewalkWeb, :router
 
   pipeline :browser do
@@ -8,15 +9,19 @@ defmodule SidewalkWeb.Router do
     plug :put_root_layout, html: {SidewalkWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug Pow.Plug.RequireAuthenticated,
+     error_handler: Pow.Phoenix.PlugErrorHandler
   end
 
   pipeline :api do
     plug :accepts, ["json"]
   end
-
+  scope "/" do
+    pipe_through :browser
+    pow_routes()
+  end
   scope "/", SidewalkWeb do
     pipe_through :browser
-
     get "/", PageController, :home
   end
 
