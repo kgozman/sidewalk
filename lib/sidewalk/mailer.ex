@@ -1,3 +1,3 @@
 defmodule Sidewalk.Mailer do
-  use Swoosh.Mailer, otp_app: :sidewalk
+use Swoosh.Mailer, otp_app: :sidewalk
 end

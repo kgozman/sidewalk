@@ -1,5 +1,5 @@
 defmodule SidewalkWeb.Layouts do
-  use SidewalkWeb, :html
+  use  SidewalkWeb, :html
 
   embed_templates "layouts/*"
 end

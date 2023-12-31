@@ -17,7 +17,7 @@ config :sidewalk, Sidewalk.Repo,
 # you can enable the server option below.
 config :sidewalk, SidewalkWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "Aeee5behyzAmiAnyebawB6h6vAhlv+2ZYWIA+mQIYP+CSe5iQiSbtscDec0v1PHH",
+  secret_key_base: "cNnQHVCKzIya15R7YhKTtHTITVk19HylymJo1y2eY+0gEpaqXPxv7+r1HBQPELyz",
   server: false
 
 # In test we don't send emails.

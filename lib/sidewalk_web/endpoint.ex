@@ -6,8 +6,8 @@ defmodule SidewalkWeb.Endpoint do
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "u7kR^AQ&Y6#o2!yLhUrLmcdFZNGEX9$NjfKQpLnFPxi@AitHXao@uFVx5C#ktUbu",
-    signing_salt: "sR51TAX7",
+    key: "_sidewalk_key",
+    signing_salt: "QlKHUGvb",
     same_site: "Lax"
   ]
 
@@ -32,15 +32,13 @@ defmodule SidewalkWeb.Endpoint do
     plug Phoenix.Ecto.CheckRepoStatus, otp_app: :sidewalk
   end
 
-
   plug Phoenix.LiveDashboard.RequestLogger,
     param_key: "request_logger",
     cookie_key: "request_logger"
 
   plug Plug.RequestId
   plug Plug.Telemetry, event_prefix: [:phoenix, :endpoint]
-
-
+  
   plug Plug.Parsers,
     parsers: [:urlencoded, :multipart, :json],
     pass: ["*/*"],
@@ -48,11 +46,7 @@ defmodule SidewalkWeb.Endpoint do
 
   plug Plug.MethodOverride
   plug Plug.Head
+  plug Plug.Session, @session_options
   plug Pow.Plug.Session, otp_app: :sidewalk
-  plug Plug.Session,
-    store: :cookie,
-    key: "_example_key",
-    signing_salt: "8ixXSdpw"
   plug SidewalkWeb.Router
 end
-

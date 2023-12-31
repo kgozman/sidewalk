@@ -1,0 +1,7 @@
+<%= if Pow.Plug.current_user(@conn) do %>
+  Logged in as <%= Pow.Plug.current_user(@conn).email %>
+  <%= link "Logout", to: Routes.pow_session_path(@conn, :delete), method: :delete %>
+<% else %>
+  <%= link "Register", to: Routes.pow_registration_path(@conn, :new) %>
+  <%= link "Login", to: Routes.pow_session_path(@conn, :new) %>
+<% end %>
