@@ -24,6 +24,15 @@ defmodule SidewalkWeb.Router do
   scope "/", SidewalkWeb do
     pipe_through :browser
     get "/", PageController, :home
+
+    live "/locations", MapLive.Index, :index
+    live "/locations/new", MapLive.Index, :new
+    live "/locations/:id/edit", MapLive.Index, :edit
+
+    live "/locations/:id", MapLive.Show, :show
+    live "/locations/:id/show/edit", MapLive.Show, :edit
+
+    live "/maps", MapLive.Index, :index
   end
 
   # Other scopes may use custom stacks.
@@ -43,7 +52,7 @@ defmodule SidewalkWeb.Router do
     scope "/dev" do
       pipe_through :browser
 
-      live_dashboard "/dashboard", metrics: SidewalkWeb.Telemetry
+      live_dashboard "/dashboard", metrics: PowSidewalkWeb.Telemetry
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
   end
